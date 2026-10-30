@@ -1,0 +1,37 @@
+img {
+  width: 100px;
+  border-radius: 50px;
+}
+body {
+  background-image: url("background.jpg"); 
+  background-repeat: no-repeat; 
+  background-position: center;            
+  background-size: cover;            
+  background-attachment: fixed;       
+  margin: 0;
+  height: 100vh; 
+}
+.bottom-left{
+  position: fixed;
+  bottom: 0px ;
+  left: 10px; 
+}
+.bottom-leftier{
+  position: fixed;
+  bottom: 0px;
+  left:50px;
+}
+.bottom-right{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.instructions {
+  color: blue;
+}
+.steps{
+  color:blueviolet;
+}
+.final{
+  color : red
+}
