@@ -1,9 +1,30 @@
 body{
   margin:0px;
 }
-a:hover{
-  color: white;
-  background-color: skyblue;
+a{
+  position: relative;
+  
+}
+#header a:hover{
+  background-color: pink;
+}
+a::before{
+  content: '';
+  position: absolute;
+  background-image:linear-gradient(to right, skyblue,red) ;
+  height: 2px;
+  border-radius:20px;
+  width:100%;
+  bottom: 0;
+  left: 0;
+  scale: 0;
+  transition: scale 200ms ease;
+}
+a:hover::before{
+  scale:1;
+}
+a:link{
+  text-decoration: none;
 }
 #header{
   position: fixed;
@@ -11,47 +32,233 @@ a:hover{
   width: 100%;
   height: 50px;
   background: linear-gradient(to right,lightgreen, skyblue);
-  z-index: 2;
+  z-index: 5;
   margin-bottom: 10px;
   opacity: 1;
   & > a{
     position:absolute;
-    color: tomato;
+    color: rgba(0,0,0);
     margin:1;
     font-size: 20px;
     bottom: 0px;
     margin:15px;
+    z-index:4;
   }
 }
-.php{
-  width: 100px;
-  border-radius: 50px;
-}
+
 .background1{
   padding-top: 50px;
   position: relative;
-  text-align: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height:300px;
 }
 .background1::before{
   content:"";
-  background-image: url("background2.png");
+  background-image: url("background1.png");
   background-size: cover;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
+  opacity: 0.3;
+  z-index: -2;
+}
+.intro{
+  position: relative;
+  max-width: 33%;
+  align-self: center;
+}
+.intro h1{
+  font-size: 50px;
+  color:#249e33 ;
+}
+.pfp{
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  position: relative;
+  background-image: url("pfp.png");
+  background-size: cover;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+.pfp::after{
+  content:"";
+  background-image: linear-gradient(to bottom, #008cff,#e100ff );
+  position: absolute;
+  height: 105%;
+  width: 105%;
+  border-radius: 150px;
+  z-index: -1;
+}
+.background2{
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 350px;
+}
+.background2::before{
+  content:"";
+  position: absolute;
+  background-image: url(background2.png);
+  background-size: cover;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.45;
+}
+.title{
+  font-size: 50px;
+  position: relative;
+  width: max-content;
+  margin: 30px;
+  color: black;
+}
+.title::before{
+  content: "";
+  position: absolute;
+  background-image:linear-gradient(to right, blue, white) ;
+  height: 5px;
+  border-radius:20px;
+  width:100%;
+  bottom: 0;
+  left: 0;
+  scale: 0;
+  transition: scale 200ms ease;
+}
+.title:hover::before{
+  scale:1
+}
+.body-text{
+  position: relative;
+  font-size: 30px;
+  margin-left:50px;
+  margin-right: 50px;
+}
+.background3{
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: max-content;
+}
+.background3::before{
+  content: "";
+  position: absolute;
+  background-image: url("background3.png");
+  background-size: cover;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   opacity: 0.5;
 }
-.bottom-left{
-  position: fixed;
-  bottom: 0px ;
-  left: 0px;
-  z-index: 2; 
+.box{
+  margin-left:10%;
+  margin-right: 10%;
+  width: 80%;
+  height:100%;
+  border:2px solid red;
+  position: relative;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
+
+.item{
+  position: relative;
+  /* border: 2px solid green;  */
+  width: 40%;
+  height: var(--height);
+  margin-bottom: 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.background3 .item{
+  background: linear-gradient(to left, #769ddb 50%, #171ae6 50%)right;
+  background-size: 200% 100%;
+  transition: background-position 1s ease;
+  & > a{
+    position: relative;
+    font-size: 30px;
+    z-index: 2;
+    width:max-content;
+    background-color: none;
+    transition:color 500ms ease ;
+  }
+  & > p {
+    background-image: linear-gradient(to left, black 50% , white 50%);
+    background-position: right;
+    background-size: 200% 100%;
+    position: relative;
+    background-clip: text;
+    color: transparent;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    z-index:2;
+    transition: background-position 1s ease;
+    } 
+}
+.background3 .item:hover,
+.background3 .item:hover p{
+  background-position: left;
+}
+.background3 .item:hover a{
+  color: #fa2dce;
+}
+.background4{
+  position:relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  &::before{
+    content: '';
+    position: absolute;
+    background-image: url("background4.jpg");
+    background-size: cover;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+  }
+  h3{
+    position: relative;
+    font-size: 30px;
+    margin: 0;
+  
+  }
+  p{
+    position: relative;
+    font-size: auto;
+  }
+  .title{
+    color: #19e68d;
+  }
+  .item{
+    background: linear-gradient(to left, #0b69a3 50% , #881b96 50% )right;
+    background-size: 200% 100%;
+    transition: background-position 1s ease;
+    &:hover{
+      background-position: left;
+    }
+  }
+}
+
+
+
+
+/* Below are all not used for main html page */
+
 .bottom-right{
   position: fixed;
   bottom: 0;
@@ -78,7 +285,4 @@ a:hover{
 }
 .final{
   color : red
-}
-#grad{
-  background-image: linear-gradient(to right, rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(238, 130, 238, 0.5));
 }
